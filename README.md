@@ -1,24 +1,5 @@
-# README
+# railsCalendar
+not ended
+# *Kalendarz akademicki*
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Aplikacja przeznaczona jest do udostępniania informacji dotyczącej zajęć odbywających się w danym semestrze. Użytkownikami serwisu są goście wyświetlający kalendarze zajęć prowadzących oraz zalogowani użytkownicy. Konieczne jest uwzględnienie dwóch ról: Prowadzącego oraz Administratora. Pierwszy na pełne prawo edycji kalendarza, natomiast prowadzący może wprowadzić konsultacje dla swojego konta. Opcjonalnie, system powinien obsługiwać importowanie oraz eksportowanie kalendarza w standardowym formacie.
