@@ -1,0 +1,48 @@
+<%= form_with(model: consultation) do |form| %>
+  <% if consultation.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(consultation.errors.count, "error") %> prohibited this consultation from being saved:</h2>
+
+      <ul>
+        <% consultation.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= form.label :consultation_name, style: "display: block" %>
+    <%= form.text_field :consultation_name, class:"form-control", placeholder:"Name of the consulation" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :teacher_name, style: "display: block" %>
+    <%= form.text_field :teacher_name, class:"form-control", placeholder:"Name of the teacher" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :email, style: "display: block" %>
+    <%= form.text_field :email, class:"form-control", placeholder:"example@domain.com" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :date, style: "display: block" %>
+    <%= form.text_field :date, class:"form-control", placeholder:"DD-MM-YYYY" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :time_start, style: "display: block" %>
+    <%= form.text_field :time_start, class:"form-control", placeholder:"HH:MM" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :time_end, style: "display: block" %>
+    <%= form.text_field :time_end, class:"form-control", placeholder:"HH:MM" %>
+  </p>
+  </div>
+
+  <div>
+    <%= form.submit class:"btn btn-secondary" %>
+  </div>
+<% end %>

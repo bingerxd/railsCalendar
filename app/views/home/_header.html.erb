@@ -12,9 +12,15 @@
         <li class="nav-item">
           <%= link_to 'Show courses', courses_path, class:"nav-link" %>
         </li>
+        <li class="nav-item">
+          <%= link_to 'Show consultations', consultations_path, class:"nav-link" %>
+        </li>
         <% if user_signed_in? %>
           <li class="nav-item">
             <%= link_to 'Create courses', new_course_path, class:"nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Create consultations', new_consultation_path, class:"nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to 'Edit your profile', edit_user_registration_path, class:"nav-link" %>

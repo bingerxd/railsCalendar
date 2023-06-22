@@ -1,0 +1,9 @@
+
+<%= render @consultation %>
+
+<div>
+  <%= link_to "Edit this consultation", edit_consultation_path(@consultation), class:"btn btn-secondary" %> |
+  <%= link_to "Back to consultations", consultations_path, class:"btn btn-secondary" %>
+  <p>
+  <%= button_to "Destroy this consultation", @consultation, method: :delete, class:"btn btn-danger" %>
+</div>

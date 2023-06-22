@@ -1,0 +1,31 @@
+<h1>List of Consultations</h1>
+<table class="table table-striped table table-bordered">
+  <thead class="table-dark">
+    <tr>
+      <th>Consultation name:</th>
+      <th>Teacher name:</th>
+      <th>Email:</th>
+      <th>Date:</th>
+      <th>Start time:</th>
+      <th>End time:</th>
+      <th>Editing:</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <% @consultations.each do |consultation| %>
+      <td><%= consultation.consultation_name %></td>
+      <td><%= consultation.teacher_name %></td>
+      <td><%= consultation.email %></td>
+      <td><%= consultation.date %></td>
+      <td><%= consultation.time_start %></td>
+      <td><%= consultation.time_end %></td>
+      <td><%= link_to "Show this consultation", consultation, class:"btn btn-secondary" %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</p>
+<%= link_to "New consultation", new_consultation_path, class:"btn btn-secondary" %>
+    
