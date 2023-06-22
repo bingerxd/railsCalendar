@@ -1,0 +1,30 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>List of Courses</h1>
+<table class="table table-striped table table-bordered">
+  <thead class="table-dark">
+    <tr>
+      <th>Course name:</th>
+      <th>Teacher name:</th>
+      <th>Email:</th>
+      <th>Start time:</th>
+      <th>End time:</th>
+      <th>Editing:</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <% @courses.each do |course| %>
+      <td><%= course.course_name %></td>
+      <td><%= course.teacher_name %></td>
+      <td><%= course.email %></td>
+      <td><%= course.start_time %></td>
+      <td><%= course.end_time %></td>
+      <td><%= link_to "Show this course", course, class:"btn btn-secondary" %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</p>
+<%= link_to "New course", new_course_path, class:"btn btn-secondary" %>
