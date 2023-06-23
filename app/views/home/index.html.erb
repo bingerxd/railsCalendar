@@ -1,2 +1,12 @@
-<h1>Hello World!</h1>
-<p>This is my first webpage</p>
+<div class="jumbotron">
+  <h1 class="text-center">Kalendarz akademicki</h1>
+  <h5 class="text-center">Aplikacja przeznaczona jest do udostępniania informacji dotyczącej zajęć odbywających się w danym semestrze. Użytkownikami serwisu są goście wyświetlający kalendarze zajęć prowadzących oraz zalogowani użytkownicy. Konieczne jest uwzględnienie dwóch ról: Prowadzącego oraz Administratora. Pierwszy na pełne prawo edycji kalendarza, natomiast prowadzący może wprowadzić konsultacje dla swojego konta.</h5>
+  <hr class="my-4">
+  <p class="text-center">
+    <%= link_to "Let's see courses!", courses_path, class:"btn btn-secondary" %>
+    <%= link_to "Let's see consultations!", consultations_path, class:"btn btn-secondary" %>
+    <%= link_to "Sign Up!", new_user_registration_path, class:"btn btn-secondary" %>
+    <%= link_to "Sign In!", new_user_session_path, class:"btn btn-secondary" %>
+  </p>
+</div>
+

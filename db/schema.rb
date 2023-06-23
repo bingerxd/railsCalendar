@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_22_205119) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_22_230436) do
   create_table "consultations", force: :cascade do |t|
     t.string "consultation_name"
     t.string "teacher_name"
@@ -20,6 +20,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_22_205119) do
     t.string "time_end"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_consultations_on_user_id"
   end
 
   create_table "courses", force: :cascade do |t|

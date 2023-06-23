@@ -41,7 +41,11 @@
     <%= form.text_field :time_end, class:"form-control", placeholder:"HH:MM" %>
   </p>
   </div>
-
+  <% if consultation.user_id == current_user.id %>
+    <div class="field form-group">
+      <%= form.number_field :user_id, id: :consultation_user_id, value:current_user.id, type: :hidden %>
+    </div>
+  <% end %>
   <div>
     <%= form.submit class:"btn btn-secondary" %>
   </div>
