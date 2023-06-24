@@ -1,0 +1,7 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Consultations") do |sheet|
+	sheet.add_row ['ID:', 'Consultation Name:', 'Teacher Name:', 'Email:', 'Date:', 'Start Time:', 'End Time:']
+	@consultations.each do |consultation|
+		sheet.add_row [consultation.id, consultation.consultation_name, consultation.teacher_name, consultation.email, consultation.date, consultation.time_start, consultation.time_end]
+	end
+end

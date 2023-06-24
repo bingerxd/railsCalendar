@@ -28,4 +28,9 @@
 </table>
 </p>
 <%= link_to "New consultation", new_consultation_path, class:"btn btn-secondary" %>
-    
+<%= link_to "Export", export_consultations_path, class:"btn btn-secondary" %>
+<hr>
+<%= form_tag import_consultations_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end  %> 

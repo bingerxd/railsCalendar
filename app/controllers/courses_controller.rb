@@ -1,8 +1,8 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :export]
   #before_action :correct_user, only: [:edit, :update, :destroy]
-  before_action :authorize_user, only: [:edit, :update, :destroy]
+  before_action :authorize_user, only: [:edit, :update, :destroy, :import]
   # GET /courses or /courses.json
   def index
     @courses = Course.all
@@ -70,6 +70,29 @@ class CoursesController < ApplicationController
     else
       correct_user
     end
+  end
+
+  def export
+    @courses = Course.all
+    render xlsx: "courses", template: "courses/export"
+  end
+
+  def import
+      file = params[:file].tempfile
+      spreadsheet = Roo::Excelx.new(file).to_a
+      spreadsheet.each do |item_array|
+        id = item_array[0]
+        course_name = item_array[1]
+        teacher_name = item_array[2]
+        email = item_array[3]
+        time_start = item_array[4]
+        time_end = item_array[5]
+        course = Course.find_or_create_by(id: id)
+
+        course.update(course_name: course_name, teacher_name: teacher_name, email: email, start_time: time_start, end_time: time_end)
+      end
+      redirect_to courses_path
+
   end
 
   private

@@ -1,8 +1,8 @@
 class ConsultationsController < ApplicationController
   before_action :set_consultation, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :export]
   #before_action :correct_user, only: [:edit, :update, :destroy]
-  before_action :authorize_user, only: [:edit, :update, :destroy]
+  before_action :authorize_user, only: [:edit, :update, :destroy, :import]
   # GET /consultations or /consultations.json
   def index
     @consultations = Consultation.all
@@ -70,6 +70,30 @@ class ConsultationsController < ApplicationController
     else
       correct_user
     end
+  end
+
+  def export
+      @consultations = Consultation.all
+      render xlsx: "consultations", template: "consultations/export"
+  end
+
+  def import
+    file = params[:file].tempfile
+    spreadsheet = Roo::Excelx.new(file).to_a
+    spreadsheet.each do |item_array|
+      id = item_array[0]
+      consultation_name = item_array[1]
+      teacher_name = item_array[2]
+      email = item_array[3]
+      date = item_array[4]
+      time_start = item_array[5]
+      time_end = item_array[6]
+
+      consultation = Consultation.find_by(id: id)
+      consultation.update(consultation_name: consultation_name, teacher_name: teacher_name, email: email, date: date, time_start: time_start, time_end: time_end)
+    end
+    redirect_to consultations_path
+
   end
 
 
