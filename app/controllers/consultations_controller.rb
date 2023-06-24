@@ -89,7 +89,7 @@ class ConsultationsController < ApplicationController
       time_start = item_array[5]
       time_end = item_array[6]
 
-      consultation = Consultation.find_by(id: id)
+      consultation = Consultation.find_by(id: id) || new
       consultation.update(consultation_name: consultation_name, teacher_name: teacher_name, email: email, date: date, time_start: time_start, time_end: time_end)
     end
     redirect_to consultations_path

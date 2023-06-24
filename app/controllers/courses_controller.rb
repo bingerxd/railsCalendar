@@ -87,7 +87,7 @@ class CoursesController < ApplicationController
         email = item_array[3]
         time_start = item_array[4]
         time_end = item_array[5]
-        course = Course.find_or_create_by(id: id)
+        course = Course.find_by(id: id) || new
 
         course.update(course_name: course_name, teacher_name: teacher_name, email: email, start_time: time_start, end_time: time_end)
       end
