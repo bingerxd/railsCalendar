@@ -12,6 +12,9 @@
         <li class="nav-item">
           <%= link_to 'Show consultations', consultations_path, class:"nav-link" %>
         </li>
+        <li class="nav-item">
+          <%= link_to 'Search', search_path, class:"nav-link" %>
+        </li>
         <% if user_signed_in? %>
           <li class="nav-item">
             <%= link_to 'Create courses', new_course_path, class:"nav-link" %>
@@ -34,10 +37,6 @@
           </li>
         <% end %>
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
     </div>
   </div>
 </nav>

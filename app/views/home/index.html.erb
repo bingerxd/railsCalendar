@@ -5,8 +5,14 @@
   <p class="text-center">
     <%= link_to "Let's see courses!", courses_path, class:"btn btn-secondary" %>
     <%= link_to "Let's see consultations!", consultations_path, class:"btn btn-secondary" %>
-    <%= link_to "Sign Up!", new_user_registration_path, class:"btn btn-secondary" %>
-    <%= link_to "Sign In!", new_user_session_path, class:"btn btn-secondary" %>
+    <%= link_to "Let's search!", search_path, class:"btn btn-secondary" %>
+    <% if user_signed_in? %>
+      <%= link_to "Let's create a course", new_course_path, class:"btn btn-secondary" %>
+      <%= link_to "Let's create a consultation", new_consultation_path, class:"btn btn-secondary" %>
+    <% else %>
+      <%= link_to "Sign Up!", new_user_registration_path, class:"btn btn-secondary" %>
+      <%= link_to "Sign In!", new_user_session_path, class:"btn btn-secondary" %>
+    <% end %>
   </p>
 </div>
 
